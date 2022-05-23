@@ -21,17 +21,44 @@ p {
   font-size: 16px;
 }
 
-input:first-child {
-  border-radius: 5px 0 0 5px;
+a {
+  text-decoration: none;
+  color: $blue;
 }
 
-input:last-child {
-  border-radius: 0 5px 5px 0;
-  border-right: 1px solid $dark-blue;
+figure {
+  margin: 24px 0;
+  padding: 16px;
+  border-left: 10px solid rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+
+  * {
+    font-size: 24px;
+  }
+
+  p {
+    margin: 0 0 16px 0;
+    padding: 0;
+  }
+
+  blockquote {
+    margin: 0;
+  }
+
+  &.coach {
+    background-color: rgb(255, 255, 161);
+  }
 }
 
-input:focus {
-  outline: none;
+figcaption {
+  font-style: italic;
+  font-weight: lighter;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
 }
 
 input {
@@ -39,11 +66,36 @@ input {
   font-size: inherit;
   border: 1px solid $light-gray;
   border-right: none;
-}
+  flex-grow: 1;
 
-input[type="submit"] {
-  background-color: $blue;
-  color: white;
-  cursor: pointer;
-  border-color: $dark-blue;
+  &[type="submit"] {
+    background-color: $blue;
+    color: white;
+    cursor: pointer;
+    border-color: $dark-blue;
+    flex-grow: 0;
+
+    &:focus {
+      border: 1px dashed $dark-blue;
+    }
+
+    &:active {
+      background-color: $dark-blue;
+    }
+  }
+
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+    border-right: 1px solid $dark-blue;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid black;
+    border-right: inherit;
+  }
 }
